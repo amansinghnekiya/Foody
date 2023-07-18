@@ -1,3 +1,9 @@
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.description %></p>
 <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete }%>
+
+<h2>Items</h2>
+<%= render @restaurant.items %>
+
+<h2>Add a Dishes:</h2>
+<%= render 'items/form'%>

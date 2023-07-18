@@ -1,0 +1,14 @@
+<h1>Update item</h1>
+<%= form_with model: [ @restaurant, @item ] do |form| %>
+  <p>
+    <%= form.label :dish %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

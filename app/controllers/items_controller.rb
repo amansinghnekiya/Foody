@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
         @restaurant = Restaurant.find(params[:restaurant_id])
         @item = @restaurant.items.find(params[:id])
         @item.destroy
-        redirect_to restaurant_path(@restaurant), notice: "Item deleted successfully"
+        redirect_to restaurant_path(@restaurant), notice: "Item destroyed successfully"
     end
 
     def edit

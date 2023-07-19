@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations' }
   root 'stores#home'
   resources :restaurants do
     resources :items
   end
-  devise_for :users, controllers: { registrations: 'registrations' }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'order_items/:id/add' => "order_items#add_quantity", as: "order_item_add"
+  post 'order_items/:id/reduce' => "order_items#reduce_quantity", as: "order_item_reduce"
+  resources :order_items
+  resources :carts
+
+
+  
 end

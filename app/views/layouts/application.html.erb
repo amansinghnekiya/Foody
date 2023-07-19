@@ -18,8 +18,10 @@
         <% if user_signed_in? and current_user.role == "bussiness_account" %>
           <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>
           <%= link_to "Add Restaurant", new_restaurant_path%>
+          <%= link_to "Cart", cart_path(@cart) %>
         <% elsif user_signed_in? and current_user.role == "basic_account" %>
           <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>
+          <%= link_to "Cart", cart_path(@cart) %>
         <% else %>
           <%= link_to "Sign-in", new_user_session_path %>
           <%= link_to "Sign-up", new_user_registration_path %>

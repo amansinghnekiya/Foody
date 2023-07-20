@@ -1,6 +1,10 @@
 class OrderItem < ApplicationRecord
     belongs_to :item 
     belongs_to :cart
+    belongs_to :restaurant
+    belongs_to :order, optional: true
+
+    validates :restaurant_id, presence: true
     
 
     def total_price

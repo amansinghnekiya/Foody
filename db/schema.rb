@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_105201) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_101150) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,14 +27,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_105201) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
     t.integer "item_id", null: false
     t.integer "cart_id", null: false
+    t.integer "restaurant_id"
+    t.integer "order_id"
     t.index ["cart_id"], name: "index_order_items_on_cart_id"
     t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["restaurant_id"], name: "index_order_items_on_restaurant_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -43,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_105201) do
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -70,4 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_105201) do
   add_foreign_key "items", "restaurants"
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "restaurants"
+  add_foreign_key "orders", "users"
 end

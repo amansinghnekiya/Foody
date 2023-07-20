@@ -20,12 +20,11 @@ class OrderItemsController < ApplicationController
 
     def new
         @order_item = OrderItem.new
-      end
+    end
 
     def create
         item = Item.find(params[:item_id])
         @order_item = @cart.add_item(item)
-
         if @order_item.save
             redirect_to @order_item.cart, notice: 'Item added to cart.'
         else

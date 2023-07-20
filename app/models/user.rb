@@ -8,5 +8,7 @@ class User < ApplicationRecord
   enum role: { basic_account: 0, bussiness_account: 1}
   validates :role, inclusion: { in: roles.keys }
   has_many :restaurants
+  has_many :orders
+  has_many :items
 
 end

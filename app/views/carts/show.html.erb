@@ -1,5 +1,10 @@
 <h2>Cart show</h2>
 <ul>
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
   <% @cart.order_items.each do |order_item| %>
     <li>Item: <%= order_item.item.name %>/ Price: <%= number_to_currency(order_item.item.price) %>/ Quantity: <%= order_item.quantity %>/ Total Price: <%= number_to_currency(order_item.total_price) %>
     <ul>
@@ -15,3 +20,4 @@
 </ul>
 <h3>Sub total: <%= number_to_currency(@cart.total_price) %></h3>
 <%= link_to "Empty cart", cart_path(@cart),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Order", new_order_path %><br>

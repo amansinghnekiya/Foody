@@ -24,11 +24,15 @@ class OrderItemsController < ApplicationController
 
     def create
         item = Item.find(params[:item_id])
-        @order_item = @cart.add_item(item)
-        if @order_item.save
-            redirect_to @order_item.cart, notice: 'Item added to cart.'
-        else
-            render :new
+        begin
+            @order_item = @cart.add_item(item)
+            if @order_item.save
+                redirect_to @order_item.cart, notice: 'Item added to cart.'
+            else
+                render :new
+            end
+        rescue Exception => e
+            redirect_to root_path, notice: e.message
         end
     end
 

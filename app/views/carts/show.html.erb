@@ -20,4 +20,6 @@
 </ul>
 <h3>Sub total: <%= number_to_currency(@cart.total_price, unit:'Rs. ') %></h3>
 <%= link_to "Empty cart", cart_path(@cart),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<%= link_to "Order", new_order_path %><br>
+<% if cart_count_over_one %>
+  <%= link_to "Order", new_order_path %><br>
+<% end %>

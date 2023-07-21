@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  root 'stores#home'
+  root 'restaurants#index'
   resources :restaurants do
     resources :items
   end

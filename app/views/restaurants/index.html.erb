@@ -1,3 +1,4 @@
+<%= paginate @restaurants %>
 <% @restaurants.each do |restaurant| %>
  <%= link_to restaurant do %>
     <h3><%= restaurant.name %></h3>
@@ -8,3 +9,4 @@
  <h2><%= restaurant.description %></h2>
  <hr />
 <% end %>
+<%= paginate @restaurants %>

@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
     def index
-        @restaurants = Restaurant.all.order('created_at desc')
+        @restaurants = Restaurant.order('created_at desc').page(params[:page]).per(1)
     end
 
     def new

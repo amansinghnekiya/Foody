@@ -70,4 +70,15 @@ Rails.application.configure do
 
   # Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.mailtrap.io',
+  port: 587,
+  domain: 'localhost',
+  user_name: 'c36bf542ee476c',
+  password: '0cfe588e4216f8',
+  authentication: :cram_md5
+  }
 end

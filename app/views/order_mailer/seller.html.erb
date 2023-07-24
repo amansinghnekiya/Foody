@@ -1,0 +1,7 @@
+<h1>Order Recieved</h1>
+<p>Order details</p>
+<ul>
+  <% @order.order_items.each do |food| %>
+    <li><%= food.quantity %> x <%= food.item.name %> = <%= food.total_price %></li>
+  <% end %>
+</ul>

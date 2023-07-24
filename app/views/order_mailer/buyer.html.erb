@@ -1,0 +1,9 @@
+<h1>Order Placed</h1>
+
+<p>Thankyou for your order.</p>
+<p>Your Order Details:</p>
+<ul>
+  <% @order.order_items.each do |food| %>
+    <li><%= food.quantity %> x <%= food.item.name %> = <%= food.total_price %></li>
+  <% end %>
+</ul>

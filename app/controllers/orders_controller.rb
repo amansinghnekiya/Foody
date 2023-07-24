@@ -20,6 +20,8 @@ class OrdersController < ApplicationController
             @order.order_items << item
             @order.save
         end
+        OrderMailer.buyer(@order).deliver_now
+        OrderMailer.seller(@order).deliver_now
         session[:cart_id] = nil
         redirect_to root_path, notice: "Order Placed"
     end

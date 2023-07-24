@@ -74,3 +74,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "stripe", "~> 8.6"
+gem "pay", "~> 6.7"

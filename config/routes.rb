@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
 
+  get 'checkout', to: 'checkouts#show'
+  get 'checkout/success', to: 'checkouts#success'
+  get 'billing', to: 'billing#show'
+
 
   
 end

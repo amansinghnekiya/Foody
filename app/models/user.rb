@@ -11,4 +11,17 @@ class User < ApplicationRecord
   has_many :orders
   has_many :items
 
+  
+
+  pay_customer stripe_attributes: :stripe_attributes
+
+  def stripe_attributes(pay_customer)
+    {
+      metadata: {
+        pay_customer_id: pay_customer.id,
+        user_id: id # or pay_customer.owner_id
+      }
+    }
+  end
+
 end

@@ -153,6 +153,8 @@ GEM
     nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pay (6.7.0)
+      rails (>= 6.0.0)
     public_suffix (5.0.3)
     puma (5.6.6)
       nio4r (~> 2.0)
@@ -217,6 +219,7 @@ GEM
     sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stripe (8.6.0)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -260,6 +263,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
+  pay (~> 6.7)
   puma (~> 5.0)
   rails (~> 7.0.6)
   selenium-webdriver
@@ -267,6 +271,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  stripe (~> 8.6)
   turbo-rails
   tzinfo-data
   web-console

@@ -1,5 +1,5 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.description %></p>
+<h2><%= @restaurant.name %></h2>
+<h4><%= @restaurant.description %></h4>
 <% if restaurant_author(@restaurant) %>
   <p>
     <%= link_to "Update",  edit_restaurant_path(@restaurant), class: "btn btn-info"%>
@@ -7,9 +7,9 @@
   </p>
 <% end %>
 <hr />
-<h2>Items</h2>
+<h4>Items</h4>
 <%= render @restaurant.items %>
 <% if restaurant_author(@restaurant) %>
-  <h2>Add a Dishes:</h2>
+  <h4>Add a Dishes:</h4>
   <%= render 'items/form'%>
 <% end %>

@@ -1,12 +1,11 @@
-<%= paginate @restaurants %>
 <% @restaurants.each do |restaurant| %>
+ <h3>Restaurant: <%= restaurant.name %></h3>
  <%= link_to restaurant do %>
-    <h3><%= restaurant.name %></h3>
     <% if restaurant.image.present? %>
         <%= image_tag(restaurant.image, class: "image") %>
     <% end %>
  <% end %>
- <h2><%= restaurant.description %></h2>
+ <h2>Description: <%= restaurant.description %></h2>
  <hr />
 <% end %>
 <%= paginate @restaurants %>

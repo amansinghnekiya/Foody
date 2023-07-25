@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-2">
+    <h5> Hi <%= @current_user.name %> </h5>
+    
+    <h4> Rooms </h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 bg-dark text-light">
+  <% if @single_room %>
+    <h4 class="text-center"> <%= @single_room.name %> </h4>
+    <%= turbo_stream_from @single_room %>
+    <div id="messages">
+      <%= render @messages %>
+    </div>
+    <%= render partial: 'layouts/new_message_form' %>
+  <% end %>
+</div>
+  
+</div>

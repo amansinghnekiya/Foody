@@ -2,8 +2,8 @@
 <p><%= @restaurant.description %></p>
 <% if restaurant_author(@restaurant) %>
   <p>
-    <%= link_to "Update",  edit_restaurant_path(@restaurant) %>
-    <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete }%>
+    <%= link_to "Update",  edit_restaurant_path(@restaurant), class: "btn btn-info"%>
+    <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete }, class: "btn btn-danger"%>
   </p>
 <% end %>
 <hr />

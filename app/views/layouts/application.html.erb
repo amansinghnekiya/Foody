@@ -8,6 +8,17 @@
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      <%= ".msg-#{current_user&.id}" %> {
+        background-color: #007bff !important;
+        padding: 10px;
+      }
+      <%= ".cont-#{current_user&.id}" %> {
+        display: flex;
+        justify-content: flex-end
+      }
+    </style>
   </head>
 
   <body>
@@ -20,11 +31,13 @@
           <%= link_to "Cart", cart_path(@cart) %>
           <%= link_to "Order", orders_path %>
           <%= link_to "Account", edit_user_registration_path%>
+          <%= link_to "Chat", rooms_path%>
           <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>
         <% elsif user_signed_in? and current_user.role == "basic_account" %>
           <%= link_to "Cart", cart_path(@cart) %>
           <%= link_to "Order", orders_path %>
           <%= link_to "Account", edit_user_registration_path%>
+          <%= link_to "Chat", rooms_path%>
           <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>
         <% else %>
           <%= link_to "Sign-in", new_user_session_path %>

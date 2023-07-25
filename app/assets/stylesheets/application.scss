@@ -16,6 +16,8 @@
 
  @import "bulma";
  .topnav {
+    position: relative;
+    bottom: 58px;
     background-color: #333;
     overflow: hidden;
   }
@@ -48,4 +50,9 @@
 
   .field input {
     width: 100%;
+  }
+
+  .red-button {
+    background-color: red;
+    color: white;
   }

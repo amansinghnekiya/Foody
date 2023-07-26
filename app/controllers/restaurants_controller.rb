@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find(params[:id])
 
         if @restaurant.update(restaurant_params)
-            redirect_to restaurants_path(), notice: "Restaurant updated successfully"
+            redirect_to restaurant_path(@restaurant), notice: "Restaurant updated successfully"
         else
             render :edit, status: :unprocessable_entity 
         end

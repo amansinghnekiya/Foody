@@ -2,8 +2,10 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-4">
+      <% if user_signed_in? && current_user.role == "bussiness_account" %>
         <h2 class="title is-2">Update restaurant</h2>
         <%= render "form", restaurant: @restaurant %>
+      <% end %>
       </div>
     </div>
   </div>

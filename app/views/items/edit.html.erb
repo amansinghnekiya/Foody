@@ -1,18 +1,12 @@
-<h1>Update item</h1>
-<%= form_with model: [ @restaurant, @item ] do |form| %>
-  <p>
-    <%= form.label :dish %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </p>
-  <p>
-    <%= form.label :image %><br>
-    <%= form.file_field :image %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+				<h2 class="title is-2">Update Food</h2>
+        <%= render "form" , item: @item%>
+      </div>
+		</div>
+	</div>
+</section>
+
+

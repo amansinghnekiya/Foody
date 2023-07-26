@@ -1,11 +1,13 @@
+<div class= "column is-14">
 <% @restaurants.each do |restaurant| %>
- <h3>Restaurant: <%= restaurant.name %></h3>
  <%= link_to restaurant do %>
-    <% if restaurant.image.present? %>
+    <h5>Restaurant: <%= restaurant.name %></h5>
+ <% end %>
+ <h5>Description: <%= restaurant.description %></h5>
+ <% if restaurant.image.present? %>
         <%= image_tag(restaurant.image, class: "image") %>
     <% end %>
- <% end %>
- <h2>Description: <%= restaurant.description %></h2>
  <hr />
 <% end %>
 <%= paginate @restaurants %>
+</div>

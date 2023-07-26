@@ -1,17 +1,33 @@
-<%= form_for(@order) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </p>
-  <p>
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+        <h2 class="title is-2">Add details for placing order</h2>
+          <%= form_with model: @order do |form| %>
+            <% if @order.errors.any? %>
+              <ul>
+                <% @order.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+            <p>
+              <%= form.label :name %><br>
+              <%= form.text_field :name %>
+            </p>
+            <p>
+              <%= form.label :email %><br>
+              <%= form.email_field :email %>
+            </p>
+            <p>
+              <%= form.label :address %><br>
+              <%= form.text_area :address %>
+            </p>
+            <p>
+              <%= form.submit %>
+            </p>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</section>

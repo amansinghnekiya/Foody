@@ -1,6 +1,7 @@
 class OrderItemsController < ApplicationController
     include CurrentCart
     before_action :set_cart, only: [:create]
+    before_action :authenticate_user!
 
     # def create
     #     chosen_item = Item.find(params[:item_id])

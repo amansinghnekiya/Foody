@@ -1,4 +1,13 @@
+
+				
 <%= form_with model: @restaurant do |form| %>
+  <% if @restaurant.errors.any? %>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div>
     <%= form.label :restaurant_name %><br>
     <%= form.text_field :name %>

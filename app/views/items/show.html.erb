@@ -1,0 +1,27 @@
+<% @restaurant.items.each do |item|%>
+  <p>
+    <strong>Dish:</strong>
+    <%= item.name %><% if item_author(item) %>
+                      <%= link_to "Update",  edit_restaurant_item_path(@restaurant, item), class: "btn btn-info" %>
+                      <%= link_to "Delete", [item.restaurant, item],
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+                    <% end %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= item.price %>
+  </p>
+  <% if item.image.present? %>
+  <%= image_tag(item.image, class: "image") %>
+  <% end %>
+  <br>
+  <p>
+   
+   <% if user_signed_in? && !item_author(item) %>
+    <%= button_to "Add #{item.name} to cart", order_items_path(item_id: item), class: "btn btn-success" %>
+   <% end %>
+  </p>
+  <hr />
+<% end %>
+

@@ -22,8 +22,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
+      <p class="notice"><%= notice %></p> 
+    <p class="alert"><%= alert %></p>  
       <div class="topnav">
       <%= link_to "Foody", restaurants_path, class: "active" %>
         <% if user_signed_in? and current_user.role == "bussiness_account" %>
@@ -44,6 +44,7 @@
           <%= link_to "Sign-up", new_user_registration_path %>
         <% end %>
       </div>
+     
     <%= yield %>
   </body>
 </html>

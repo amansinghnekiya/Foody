@@ -1,13 +1,24 @@
 class ItemsController < ApplicationController
+    before_action :authenticate_user!
+
+    def show
+        @restaurant = Restaurant.find(params[:restaurant_id])
+        @items = @restaurant.items
+    end
+
+    def new
+        @restaurant = Restaurant.find(params[:restaurant_id])
+        @item = @restaurant.items.build
+    end
 
     def create
         @restaurant = Restaurant.find(params[:restaurant_id])
-        @item = @restaurant.items.create(item_params)
+        @item = @restaurant.items.build(item_params)
         @item.user_id = current_user.id
         if @item.save
             redirect_to restaurant_path(@restaurant), notice: "Item successfully added"
         else
-            redirect_to restaurant_path(@restaurant), notice: "Item did not save"
+            render :new, status: :unprocessable_entity 
         end
     end
 

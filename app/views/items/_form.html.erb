@@ -1,17 +1,26 @@
-<%= form_with model: [ @restaurant, @restaurant.items.build ] do |form| %>
-  <p>
-    <%= form.label :dish %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </p>
-  <p>
-    <%= form.label :image %><br>
-    <%= form.file_field :image %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+
+          <%= form_with model: [ @restaurant, @item ] do |form| %>
+            <% if @item.errors.any? %>
+              <ul>
+                <% @item.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+            <p>
+              <%= form.label :dish %><br>
+              <%= form.text_field :name %>
+            </p>
+            <p>
+              <%= form.label :price %><br>
+              <%= form.number_field :price %>
+            </p>
+            <p>
+              <%= form.label :image %><br>
+              <%= form.file_field :image %>
+            </p>
+            <p>
+              <%= form.submit %>
+            </p>
+        <% end %>
+      

@@ -5,6 +5,8 @@ class OrderItem < ApplicationRecord
     belongs_to :order, optional: true
 
     validates :restaurant_id, presence: true
+    validates :item_id, presence: true
+    validates :cart_id, presence: true
     
 
     def total_price

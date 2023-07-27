@@ -30,6 +30,7 @@
           <%= link_to "Add Restaurant", new_restaurant_path%>
           <%= link_to "Cart", cart_path(@cart) %>
           <%= link_to "Order", orders_path %>
+          <%= link_to "Restaurant Orders", restaurant_orders_path%>
           <%= link_to "Account", edit_user_registration_path%>
           <%= link_to "Chat", rooms_path%>
           <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>

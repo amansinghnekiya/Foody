@@ -3,22 +3,6 @@ class OrderItemsController < ApplicationController
     before_action :set_cart, only: [:create]
     before_action :authenticate_user!
 
-    # def create
-    #     chosen_item = Item.find(params[:item_id])
-    #     current_cart = @current_cart
-      
-    #     if current_cart.items.include?(chosen_item)
-    #       @order_item = current_cart.order_items.find_by(:item_id => chosen_item)
-    #       @order_item.quantity += 1
-    #     else
-    #       @order_item = OrderItem.new
-    #       @order_item.cart_id = current_cart
-    #       @order_item.item_id = chosen_item
-    #     end
-    #     @order_item.save
-    #     redirect_to cart_path(current_cart)
-    # end
-
     def new
         @order_item = OrderItem.new
     end

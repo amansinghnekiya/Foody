@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   
   get "user/:id", to: "user#show", as: "user"
+  get '/restaurant_orders', to: 'orders#restaurant_orders', as: 'restaurant_orders'
 
 
   post 'order_items/:id/add' => "order_items#add_quantity", as: "order_item_add"

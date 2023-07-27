@@ -1,9 +1,10 @@
 <div class="column">
-<h2>All Orders</h2>
+<h2>Restaurant Orders</h2>
 <hr>
 <% @orders.each do |order| %>
   <p>Name: <%= order.name %></p>
   <p>Email: <%= order.email %></p>
+  <p>Address: <%= order.address %></p>
   <p>Line Items: </p>
   <ul>
     <% order.order_items.each do |food| %>
@@ -12,4 +13,5 @@
   </ul>
   <hr>
 <% end %>
+
 </div>

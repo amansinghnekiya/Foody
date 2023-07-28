@@ -11,7 +11,6 @@ class CartsController < ApplicationController
     end
 
     def create
-        byebug
         @cart = Cart.new(cart_params)
         if @cart.save
             redirect_to cart_url(@cart), notice: 'Cart was successfully created.'

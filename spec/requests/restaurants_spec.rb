@@ -17,7 +17,7 @@ RSpec.describe "Restaurants", type: :request do
     end
   end
 
-  describe "POST /restaurants/:restaurant_id/items" do
+  describe "POST /restaurants" do
     it "works!" do
       user = User.create(name: "Aman", email: "aman@gmail.com", role: "basic_account", password: "abc@123")
       restaurant = Restaurant.create(name: "Gurukripa", description: "Pure veg", user_id: user.id)

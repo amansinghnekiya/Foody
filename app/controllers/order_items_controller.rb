@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
-  before_action :find_cart_and_order_item, only: [:destroy, :add_quantity, :reduce_quantity]
+  before_action :find_cart_and_order_item, only: [ :add_quantity, :reduce_quantity]
   before_action :authenticate_user!
 
   def new
@@ -26,6 +26,8 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(session[:cart_id])
+    @order_item = OrderItem.find(params[:id])
     @order_item.destroy
     redirect_to cart_path(@cart), notice: 'Item successfully removed.'
   end

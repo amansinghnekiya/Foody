@@ -1,14 +1,14 @@
 <div class= "column">
-<h2><%= @restaurant.name %></h2>
-<h4><%= @restaurant.description %></h4>
-<% if restaurant_author(@restaurant) %>
-  <p>
-    <%= link_to "Update",  edit_restaurant_path(@restaurant), class: "btn btn-info"%>
-    <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure" }, class: "btn btn-danger"%>
-    <%= link_to "Add Food", new_restaurant_item_path(@restaurant),class: "btn btn-info"%>
-  </p>
-<% end %>
-<hr />
-<h4>Items</h4>
-<%= render template: "items/show" %>
+  <h2><%= @restaurant.name %></h2>
+  <h4><%= @restaurant.description %></h4>
+  <% if restaurant_author(@restaurant) %>
+    <p>
+      <%= link_to "Update",  edit_restaurant_path(@restaurant), class: "btn btn-info"%>
+      <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure" }, class: "btn btn-danger"%>
+      <%= link_to "Add Food", new_restaurant_item_path(@restaurant),class: "btn btn-info"%>
+    </p>
+  <% end %>
+  <hr />
+  <h4>Items</h4>
+  <%= render template: "items/show" %>
 </div>

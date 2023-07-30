@@ -16,15 +16,18 @@
 <% end %>
 
 <div class= "column is-14">
-<% @restaurants.each do |restaurant| %>
- <%= link_to restaurant_path(restaurant) do %>
-    <h5>Restaurant: <%= restaurant.name %></h5>
- <% end %>
- <h5>Description: <%= restaurant.description %></h5>
- <% if restaurant.image.present? %>
-        <%= image_tag(restaurant.image, class: "image") %>
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <h5>Restaurant: <%= restaurant.name %></h5>
     <% end %>
- <hr />
-<% end %>
-<%= paginate @restaurants %>
+
+    <h5>Description: <%= restaurant.description %></h5>
+
+    <% if restaurant.image.present? %>
+      <%= image_tag(restaurant.image, class: "image") %>
+    <% end %>
+    
+    <hr />
+  <% end %>
+  <%= paginate @restaurants %>
 </div>

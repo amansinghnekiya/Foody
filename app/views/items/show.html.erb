@@ -12,16 +12,18 @@
     <strong>Price:</strong>
     <%= item.price %>
   </p>
+
   <% if item.image.present? %>
-  <%= image_tag(item.image, class: "image") %>
+    <%= image_tag(item.image, class: "image") %>
   <% end %>
   <br>
+
   <p>
-   
-   <% if user_signed_in? && !item_author(item) %>
-    <%= button_to "Add #{item.name} to cart", order_items_path(item_id: item), class: "btn btn-success" %>
-   <% end %>
+    <% if user_signed_in? && !item_author(item) %>
+      <%= button_to "Add #{item.name} to cart", order_items_path(item_id: item), class: "btn btn-success" %>
+    <% end %>
   </p>
   <hr />
+  
 <% end %>
 

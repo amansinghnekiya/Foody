@@ -1,15 +1,16 @@
 <div class="column">
-<h2>All Orders</h2>
-<hr>
-<% @orders.each do |order| %>
-  <p>Name: <%= order.name %></p>
-  <p>Email: <%= order.email %></p>
-  <p>Line Items: </p>
-  <ul>
-    <% order.order_items.each do |food| %>
-    <li><%= food.quantity %> x <%= food.item.name %> = <%= food.total_price %></li>
-    <% end %>
-  </ul>
+  <h2>All Orders</h2>
   <hr>
-<% end %>
+
+  <% @orders.each do |order| %>
+    <p>Name: <%= order.name %></p>
+    <p>Email: <%= order.email %></p>
+    <p>Line Items: </p>
+    <ul>
+      <% order.order_items.each do |food| %>
+        <li><%= food.quantity %> x <%= food.item.name %> = <%= food.total_price %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <hr>
 </div>

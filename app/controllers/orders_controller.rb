@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def restaurant_orders
-    @orders = Order.joins(order_items: :item).where(items: { user_id: current_user.id }).order(created_at: :desc)
+    @orders = Order.joins(order_items: :item).where(items: { user_id: current_user.id }).order(created_at: :desc).select('DISTINCT orders.*')
   end
     
   def show

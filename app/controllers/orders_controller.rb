@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
       end
       OrderMailer.buyer(@order).deliver_now
       OrderMailer.seller(@order).deliver_now
+      MySidekiqJob.new.perform(current_user.id)
       session[:cart_id] = nil
       redirect_to root_path, notice: "Order Placed"
     else

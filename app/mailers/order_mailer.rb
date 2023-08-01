@@ -22,4 +22,10 @@ class OrderMailer < ApplicationMailer
     @seller_email = @order.order_items.last.item.user.email
     mail to: @seller_email, subject: "Order Recieve"
   end
+
+  def mysidekiq(email)
+    @email = email
+    mail to: @email, subject: "Backgroundjob"
+  end
+
 end

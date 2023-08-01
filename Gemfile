@@ -19,6 +19,7 @@ gem "bulma-rails"
 gem 'kaminari'
 gem "activeadmin"
 gem 'sidekiq', '~> 5.2.9'
+gem 'rubocop-rails', require: false
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

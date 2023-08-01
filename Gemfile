@@ -20,6 +20,7 @@ gem 'kaminari'
 gem "activeadmin"
 gem 'sidekiq', '~> 5.2.9'
 gem 'rubocop-rails', require: false
+gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

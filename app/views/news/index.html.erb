@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>You get all news here</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @headlines.each do |headline| %>
+        <tr>
+          <td><%= headline['source']['name'] %></td>
+          <td><%= headline['title'] %></td>
+          <td><%= headline['description'] %></td>
+          <td><%= link_to 'Read more', headline['url'], target: '_blank' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
+</html>

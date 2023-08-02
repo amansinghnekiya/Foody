@@ -12,5 +12,10 @@ class OrderItem < ApplicationRecord
   def total_price
     item.price.to_i * quantity.to_i
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["cart_id", "created_at", "id", "item_id", "order_id", "quantity", "restaurant_id", "updated_at"]
+  end
+
   
 end

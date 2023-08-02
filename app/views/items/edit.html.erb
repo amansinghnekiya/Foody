@@ -5,6 +5,8 @@
         <% if user_signed_in? && current_user.role == "bussiness_account" &&  @item.user_id == current_user.id %>
 				  <h2 class="title is-2">Update Food</h2>
           <%= render "form" , item: @item%>
+        <% else %>
+          <p>You are not authorized to access this page.</p>
         <% end %>
       </div>
 		</div>

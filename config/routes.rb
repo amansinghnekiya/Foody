@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :items
   end
   
-  get "user/:id", to: "user#show", as: "user"
+  get "users/:id", to: "users#show", as: "user"
   get '/restaurant_orders', to: 'orders#restaurant_orders', as: 'restaurant_orders'
 
 
